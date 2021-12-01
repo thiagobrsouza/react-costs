@@ -7,13 +7,19 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 1500,
+      "cost": 900,
       "services": [
         {
-          "name": "Contratar programador PHP",
-          "cost": "1500",
-          "description": "nivel jr",
-          "id": "f9acb045-b0e0-4113-b265-d779bee7f1ec"
+          "name": "Passagem aerea",
+          "cost": "300",
+          "description": "viagem a RJ",
+          "id": "e9d87bcd-88e8-4e46-8ad3-ba4587f4c488"
+        },
+        {
+          "name": "Serviço de DBA",
+          "cost": "600",
+          "description": "Contrato de DBA",
+          "id": "8abae34a-7dad-4d9e-8231-330177853bcb"
         }
       ],
       "id": 3

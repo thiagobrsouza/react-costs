@@ -7,8 +7,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 1500,
+      "services": [
+        {
+          "name": "Contratar programador PHP",
+          "cost": "1500",
+          "description": "nivel jr",
+          "id": "f9acb045-b0e0-4113-b265-d779bee7f1ec"
+        }
+      ],
       "id": 3
     },
     {
@@ -18,13 +25,19 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 200,
+      "cost": 650,
       "services": [
         {
           "name": "meu serviço",
           "cost": "200",
           "description": "...",
           "id": "7e4ea3eb-e1fa-47ce-a34a-6e34e03d9444"
+        },
+        {
+          "name": "Admin do Firewall",
+          "cost": "450",
+          "description": "administrar o firewall",
+          "id": "4701d802-907b-49bf-ac0f-83a5ad46d255"
         }
       ],
       "id": 4

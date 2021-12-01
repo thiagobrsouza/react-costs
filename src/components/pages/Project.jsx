@@ -1,3 +1,5 @@
+import { parse, v4 as uuidv4 } from 'uuid'
+
 import styles from './styles/Project.module.css'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -5,10 +7,11 @@ import Loading from '../layout/Loading'
 import Container from '../layout/Container'
 import ProjectForm from '../project/ProjectForm'
 import Message from '../layout/Message'
+import ServiceForm from '../service/ServiceForm'
 
 export default function Project() {
 
-  const {id} = useParams()
+  let {id} = useParams()
   const [project, setProject] = useState([])
   const [showProjectForm, setShowProjectForm] = useState(false)
   const [showServiceForm, setShowServiceForm] = useState(false)
@@ -50,6 +53,41 @@ export default function Project() {
       setType('success')
     })
     .catch(err => console.error(err))
+  }
+
+  function createService(project) {
+    setMessage('')
+    const lastService = project.services[project.services.length - 1]
+    lastService.id = uuidv4()
+    const lastServiceCost = lastService.cost
+    const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+    // validacao de exceder valor
+    if(newCost > parseFloat(project.budget)) {
+      setMessage('Orçamento ultrapassado, verifique o valor do serviço.')
+      setType('error')
+      project.services.pop()
+      return false
+    }
+
+    // adiciona o custo do servico ao valor total do projeto
+    project.cost = newCost
+
+    // atualizar o projeto
+    fetch(`http://localhost:5000/projects/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(project)
+    })
+    .then((resp) => resp.json())
+    .then((data) => {
+      // exibir servicos
+      console.log(data)
+    })
+    .catch(err => console.log(err))
+
   }
 
   function toggleProjectForm() {
@@ -95,9 +133,7 @@ export default function Project() {
               </button>
               <div className={styles.project_info}>
                 {showServiceForm && (
-                  <div>
-                    formulário de serviço
-                  </div>
+                  <ServiceForm handleSubmit={createService} btnText="Adicionar Serviço" projectData={project}/>
                 )}
               </div>
           </div>

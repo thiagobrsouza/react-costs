@@ -13,10 +13,10 @@
     },
     {
       "name": "Projeto Cofre",
-      "budget": "9000",
+      "budget": "6000",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "1",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],

@@ -1,28 +1,6 @@
 {
   "projects": [
     {
-      "name": "Teste 17",
-      "budget": "1000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "Meu projeto 2",
-      "budget": "3500",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
       "name": "Novo Projeto",
       "budget": "1850",
       "category": {
